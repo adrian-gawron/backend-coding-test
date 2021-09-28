@@ -33,6 +33,8 @@ To download and setup visit [Sqlite download page](https://www.sqlite.org/downlo
 3. Run `npm start` to run the server
 
 ## Endpoints
+### Swagger documentation endpoint [GET] - http://localhost:8010/api-docs
+
 ### Health endpoint [GET] - http://localhost:8010/health
 
 - Response:
