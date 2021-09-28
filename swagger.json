@@ -1,0 +1,181 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Backend coding test",
+    "description": "Recruitment task"
+  },
+  "host": "localhost:8010",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Rides",
+      "description": "API to create Rides, get all Rides and get one Ride based on rideId"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/rides": {
+      "get": {
+        "tags": [
+          "Rides"
+        ],
+        "summary": "Get all rides in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/Rides"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Rides"
+        ],
+        "summary": "Create ride in system",
+        "parameters": [
+          {
+            "name": "ride",
+            "in": "body",
+            "description": "Ride that we want to create",
+            "schema": {
+              "$ref": "#/definitions/RidesPost"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/Rides"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/rides/1": {
+      "get": {
+        "tags": [
+          "Rides"
+        ],
+        "summary": "Get rides with rideId === 1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/definitions/Rides"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Rides": {
+      "properties": {
+        "rideID": {
+          "type": "integer",
+          "uniqueItems": true,
+          "example": 1
+        },
+        "startLat": {
+          "type": "integer",
+          "example": 1
+        },
+        "startLong": {
+          "type": "integer",
+          "example": 1
+        },
+        "endLat": {
+          "type": "integer",
+          "example": 1
+        },
+        "endLong": {
+          "type": "integer",
+          "example": 1
+        },
+        "riderName": {
+          "type": "string",
+          "example": "John"
+        },
+        "driverName": {
+          "type": "string",
+          "example": "Doe"
+        },
+        "driverVehicle": {
+          "type": "string",
+          "example": "Mustang"
+        },
+        "created": {
+          "type": "string",
+          "example": "2021-09-28 14:16:59"
+        }
+      }
+    },
+    "RidesPost": {
+      "properties": {
+        "start_lat": {
+          "type": "integer",
+          "example": 1
+        },
+        "start_long": {
+          "type": "integer",
+          "example": 1
+        },
+        "end_lat": {
+          "type": "integer",
+          "example": 1
+        },
+        "end_long": {
+          "type": "integer",
+          "example": 1
+        },
+        "rider_name": {
+          "type": "string",
+          "example": "John"
+        },
+        "driver_name": {
+          "type": "string",
+          "example": "Doe"
+        },
+        "driver_vehicle": {
+          "type": "string",
+          "example": "Mustang"
+        }
+      }
+    }
+  }
+}
