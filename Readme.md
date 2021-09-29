@@ -103,6 +103,25 @@ To download and setup visit [Sqlite download page](https://www.sqlite.org/downlo
     }
 ]
 ```
+### Get all Rides endpoint using pagination [GET] - http://localhost:8010/rides?limit=1&offset=1
+- Response:
+```
+- Status: 200
+- Body:
+[
+{
+        "rideID": 2,
+        "startLat": 1,
+        "startLong": 1,
+        "endLat": 1,
+        "endLong": 1,
+        "riderName": "Rider name",
+        "driverName": "Driver name",
+        "driverVehicle": "Driver vehicle",
+        "created": "2021-09-28 12:55:15"
+    }
+]
+```
 ### Get one Rides by rideId endpoint [GET] - http://localhost:8010/rides/:rideId
 - Request:
 ```
