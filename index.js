@@ -2,7 +2,7 @@
 
 const port = 8010;
 
-const logger = require('./src/handler/handler')
+const logger = require('./src/logger/logger')
 const sqlite3 = require('sqlite3').verbose();
 const buildSchemas = require('./src/schemas');
 const swaggerUi = require('swagger-ui-express'),
