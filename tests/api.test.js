@@ -69,7 +69,7 @@ describe('API tests', () => {
               'driver_vehicle':'Driver vehicle'},
           )
           .expect('Content-Type', 'application/json; charset=utf-8')
-          .expect(200, {
+          .expect(400, {
             error_code: 'VALIDATION_ERROR',
         message: 'Start latitude and longitude must be between -90 - 90 and -180 to 180 degrees respectively'}, done);
     });
@@ -89,7 +89,7 @@ describe('API tests', () => {
               'driver_vehicle':'Driver vehicle'},
           )
           .expect('Content-Type', 'application/json; charset=utf-8')
-          .expect(200, {
+          .expect(400, {
             error_code: 'VALIDATION_ERROR',
         message: 'End latitude and longitude must be between -90 - 90 and -180 to 180 degrees respectively'}, done);
     });
@@ -109,7 +109,7 @@ describe('API tests', () => {
               'driver_vehicle':'Driver vehicle'},
           )
           .expect('Content-Type', 'application/json; charset=utf-8')
-          .expect(200, {
+          .expect(400, {
             error_code: 'VALIDATION_ERROR',
         message: 'Rider name must be a non empty string'}, done);
     });
@@ -129,7 +129,7 @@ describe('API tests', () => {
               'driver_vehicle':'Driver vehicle'},
           )
           .expect('Content-Type', 'application/json; charset=utf-8')
-          .expect(200, {
+          .expect(400, {
             error_code: 'VALIDATION_ERROR',
         message: 'Driver name must be a non empty string'}, done);
     });
@@ -149,7 +149,7 @@ describe('API tests', () => {
               'driver_vehicle':''},
           )
           .expect('Content-Type', 'application/json; charset=utf-8')
-          .expect(200, {
+          .expect(400, {
             error_code: 'VALIDATION_ERROR',
         message: 'Vehicle name must be a non empty string'}, done);
     });
@@ -177,7 +177,7 @@ describe('API tests', () => {
       request(app)
           .get('/rides?offset=5')
           .expect('Content-Type', 'application/json; charset=utf-8')
-          .expect(200, {
+          .expect(404, {
             error_code: 'RIDES_NOT_FOUND_ERROR',
           message: 'Could not find any rides',}, done);
     });
@@ -205,7 +205,7 @@ describe('API tests', () => {
       request(app)
           .get('/rides/test')
           .expect('Content-Type', 'application/json; charset=utf-8')
-          .expect(200, {
+          .expect(404, {
             error_code: 'RIDES_NOT_FOUND_ERROR',
           message: 'Could not find any rides',}, done);
     });
@@ -217,7 +217,7 @@ describe('API tests', () => {
       request(app)
           .get('/rides/odf dfspdf ')
           .expect('Content-Type', 'application/json; charset=utf-8')
-          .expect(200, {
+          .expect(500, {
             error_code: 'SERVER_ERROR',
           message: 'Unknown error',}, done);
     });
@@ -228,7 +228,7 @@ describe('API tests', () => {
       request(app)
           .get('/rides')
           .expect('Content-Type', 'application/json; charset=utf-8')
-          .expect(200, {
+          .expect(500, {
             error_code: 'SERVER_ERROR',
           message: 'Unknown error',}, done);
     });
@@ -248,7 +248,7 @@ describe('API tests', () => {
               'driver_vehicle':'Vehicle name'},
           )
           .expect('Content-Type', 'application/json; charset=utf-8')
-          .expect(200, {
+          .expect(500, {
             error_code: 'SERVER_ERROR',
           message: 'Unknown error'}, done);
     });
