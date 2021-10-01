@@ -6,10 +6,6 @@ module.exports = {
   },
   'extends': [
     'google',
-    'plugin:security/recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
-    'eslint:recommended',
   ],
   'parser': '@typescript-eslint/parser',
   'parserOptions': {
@@ -20,6 +16,7 @@ module.exports = {
   ],
   'rules': {
     'no-unused-vars': 'warn',
-    'max-len': ['error', {'code': 160}],
+    'no-invalid-this': true,
+    'max-len': ['error', {'code': 175}],
   },
 };
